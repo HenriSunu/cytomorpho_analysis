@@ -233,7 +233,7 @@ def read_hdf5_results(
         else:
             raise ValueError("Invalid group in HDF5 file. Expected a Group object. Check the mgg_database and album_id?")
 
-    if not aggregate in [True, False, "proportions", "all"]:
+    if aggregate not in [True, False, "proportions", "all"]:
         raise ValueError(
             "Invalid aggregate type. Expected True, False, 'proportions', or 'all'."
         )

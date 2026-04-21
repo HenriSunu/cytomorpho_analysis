@@ -80,7 +80,7 @@ def aggregate_results(
     # Calculate proportions
     proportions_ser = pd.Series()
     # Basic cell differential
-    cell_types = np.array(list(CELL_LABEL_MAP.values()))[1:-1]
+    cell_types = [v for v in CELL_LABEL_MAP.values() if v not in ("Artefacts", "Unknowns")]
     for ct in cell_types:
         proportions_ser[f"Living_cells-{ct}_proportion"] = (
             min_division(raw_results_ser[ct], raw_results_ser["Living_cells"], minimum_to_aggregate)

@@ -100,8 +100,8 @@ def _filter_small_megakaryocytes(
     image_sizes = data["IMGSIZE"][:]
 
     # calculate width and height of the bounding boxes
-    widths = (boxes[:, 2] - boxes[:, 0]) / image_sizes[:, 1]
-    heights = (boxes[:, 3] - boxes[:, 1]) / image_sizes[:, 0]
+    widths = (boxes[:, 2] - boxes[:, 0]) / image_sizes[:, 0]
+    heights = (boxes[:, 3] - boxes[:, 1]) / image_sizes[:, 1]
 
     # Cells that are smaller
     small_cells = (widths < min_size[0]) & (heights < min_size[1])

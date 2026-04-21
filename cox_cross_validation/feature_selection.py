@@ -16,7 +16,7 @@ def cox_conditional_screening(X, y):
 
     cox_model = CoxPHSurvivalAnalysis(alpha=0, n_iter=100, tol=1e-6)
 
-    cox_coefs = [np.inf]
+    cox_coefs = [np.finfo(np.float64).max]
     for col in np.arange(1, X.shape[1]):
         if np.all(X[0,col] == X[:,col]):
             # If all values are the same, set score to 0

@@ -41,7 +41,7 @@ class DoubleStandardScaler(StandardScaler):
                     "instead. See docstring for motivation and alternatives."
                 )
             if self.scale_ is not None:
-                inplace_column_scale(X, 1 / 2 * self.scale_)
+                inplace_column_scale(X, 1 / (2 * self.scale_))
         else:
             if self.with_mean:
                 X -= self.mean_
